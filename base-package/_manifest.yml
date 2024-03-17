@@ -1,0 +1,5 @@
+name: "base-package"
+title: "Base package"
+description: The most basic commands like name, entry number, email signatures, etc.
+version: 0.1.0
+author: Mohammad Yasir

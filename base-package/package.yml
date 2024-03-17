@@ -1,0 +1,36 @@
+# Print the current date
+- trigger: ";sd"
+  replace: "{{mydate}}"
+  vars:
+    - name: mydate
+      type: date
+      params:
+        format: "%d.%m.%Y"
+
+
+# Print the long date
+- trigger: ";ld"
+  replace: "{{mydate}}"
+  vars:
+    - name: mydate
+      type: date
+      params:
+        format: "%A, %d %B, %Y"
+
+
+# Print name and entry number
+- trigger: ";nno"
+  replace: "Mohammad Yasir | 2023 PHZ 8490"
+
+# Print name only
+- trigger: ";nom"
+  replace: "Mohammad Yasir"
+
+# Email signature
+- trigger: ";sig"
+  replace: | 
+            Regards,
+            Mohammad Yasir,
+            Author and Poet
+            Research Scholar, IIT-D
+            Web: https://hafizmdyasir.github.io
