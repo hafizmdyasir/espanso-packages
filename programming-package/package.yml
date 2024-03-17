@@ -1,53 +1,54 @@
-- trigger: ";fhcpp"
-  replace: |
-            /*
+matches:
+  - trigger: ";fhcpp"
+    replace: |
+              /*
 
-            ============
-            Created: {{mydate}}
+              ============
+              Created: {{mydate}}
 
-            Copyright 
-            Mohammad Yasir
-            Research Scholar, IIT-D
+              Copyright 
+              Mohammad Yasir
+              Research Scholar, IIT-D
 
-            All rights reserved. No part of this code may be used, modified, shared, or reproduced in any form without express permission of its author.
+              All rights reserved. No part of this code may be used, modified, shared, or reproduced in any form without express permission of its author.
 
-            DESCRIPTION
-            -----------
+              DESCRIPTION
+              -----------
 
-            */
-  vars:
-    - name: mydate
-      type: date
-      params:
-        format: "%d.%m.%Y"
-
-
-- trigger: ";fhpython"
-  replace: |
-            '''
-
-            ============
-            Created: {{mydate}}
-
-            Copyright 
-            Mohammad Yasir
-            Research Scholar, IIT-D
-
-            All rights reserved. No part of this code may be used, modified, shared, or reproduced in any form without express permission of its author.
-
-            DESCRIPTION
-            -----------
-
-            '''
-  vars:
-    - name: mydate
-      type: date
-      params:
-        format: "%d.%m.%Y"
+              */
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d.%m.%Y"
 
 
-- trigger: ";mplib"
-  replace: "import matplotlib.pyplot as plotter"
+  - trigger: ";fhpython"
+    replace: |
+              '''
 
-- trigger: "plt"
-  replace: "plotter"
+              ============
+              Created: {{mydate}}
+
+              Copyright 
+              Mohammad Yasir
+              Research Scholar, IIT-D
+
+              All rights reserved. No part of this code may be used, modified, shared, or reproduced in any form without express permission of its author.
+
+              DESCRIPTION
+              -----------
+
+              '''
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d.%m.%Y"
+
+
+  - trigger: ";mplib"
+    replace: "import matplotlib.pyplot as plotter"
+
+  - trigger: "plt"
+    replace: "plotter"
