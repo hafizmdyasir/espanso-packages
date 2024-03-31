@@ -23,7 +23,7 @@ matches:
           format: "%d.%m.%Y"
 
 
-  - trigger: ";fhpython"
+  - trigger: ";fhp"
     replace: |
               '''
 
@@ -47,8 +47,38 @@ matches:
           format: "%d.%m.%Y"
 
 
+# Matplotlib
   - trigger: ";mplib"
     replace: "import matplotlib.pyplot as plotter"
 
   - trigger: "plt"
     replace: "plotter"
+
+  # Simple plot
+  - trigger: ";plot"
+    replace: "plotter.plot($|$)"
+
+  # Scatter plot
+  - trigger: ";scatter"
+    replace: "plotter.scatter($|$)"
+
+  # Stem plot
+  - trigger: ";stem"
+    replace: "plotter.stem($|$)"
+
+  # Gird, legend, show
+  - trigger: ";showfull"
+    replace: |
+              plotter.legend()
+              plotter.grid()
+              plotter.show()
+
+  # Legend, show
+  - trigger: ";showleg"
+    replace: |
+              plotter.legend()
+              plotter.show()
+
+# numpy
+  - trigger: ";numpy"
+    replace: "import numpy as np"
