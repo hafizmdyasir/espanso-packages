@@ -49,35 +49,32 @@ matches:
 
 # Matplotlib
   - trigger: ";mplib"
-    replace: "import matplotlib.pyplot as plotter"
-
-  - trigger: "plt"
-    replace: "plotter"
+    replace: "import matplotlib.pyplot as plt"
 
   # Simple plot
   - trigger: ";plot"
-    replace: "plotter.plot($|$)"
+    replace: "plt.plot($|$)"
 
   # Scatter plot
   - trigger: ";scatter"
-    replace: "plotter.scatter($|$)"
+    replace: "plt.scatter($|$)"
 
   # Stem plot
   - trigger: ";stem"
-    replace: "plotter.stem($|$)"
+    replace: "plt.stem($|$)"
 
   # Gird, legend, show
   - trigger: ";showfull"
     replace: |
-              plotter.legend()
-              plotter.grid()
-              plotter.show()
+              plt.legend()
+              plt.grid()
+              plt.show()
 
   # Legend, show
   - trigger: ";showleg"
     replace: |
-              plotter.legend()
-              plotter.show()
+              plt.legend()
+              plt.show()
 
 # numpy
   - trigger: ";numpy"
