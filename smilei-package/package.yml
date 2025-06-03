@@ -44,6 +44,7 @@ matches:
                   charge = -1.,
                   number_density = 10.,
                   atomic_number = None,
+                  particles_per_cell = 32,
 
                   position_initialization = 'random',     # centered or regular with regular_number
                   momentum_initialization = "cold",       # or rectangular or maxwell-juettner
