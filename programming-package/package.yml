@@ -78,4 +78,4 @@ matches:
 
 # numpy
   - trigger: ";numpy"
-    replace: "import numpy as np"
+    replace: "from numpy import *   #type: ignore"

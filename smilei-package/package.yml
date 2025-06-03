@@ -1,0 +1,85 @@
+matches:
+  - trigger: ";smunits"
+    replace: |
+              # Normalization Quantities
+              qr = qe = 1.60217e-19       # Charge of electron in C
+              mr = me = 9.10938e-31       # Mass of electron in kg
+              vr = c = 299792458          # Speed of light in m/s
+              eps0 = 8.854187817e-12      # Vacuum permittivity in F/m
+
+              Kr = me*c*c             # Kinetic energy reference
+              pr = me*c               # Momentum reference
+
+              # Arbitrary References
+              omega_r = 1e15          # Reference angular frequency
+              Tr = 1/omega_r          # Reference time
+              Lr = c/omega_r          # Reference length
+              Er = me*c*omega_r/qe    # Reference Electric Field        
+              Br = Er/c               # Reference Magnetic Field
+              Nr = eps0*me*(omega_r/qe)**2    # Reference particle density
+              Jr = c*qe*Nr            # Reference current density
+
+
+  - trigger: ";smmain"
+    replace: |
+              Main(
+                geometry = "1Dcartesian",
+                cell_length = [0.01],
+                grid_length  = [16. ],
+
+                number_of_patches = [64],
+                simulation_time    = 15.,
+                timestep    = 0.005,
+                print_every = 100,
+                
+                EM_boundary_conditions = [['silver-muller']], # or PML with number_of_pml_cells
+                time_fields_frozen = 0.,
+              )
+
+  - trigger: ";smspecies"
+    replace: |
+              Species(
+                name      = "",
+                mass = 1.,
+                charge = -1.,
+                number_density = 10.,
+                atomic_number = None,
+
+                position_initialization = 'random',     # centered or regular with regular_number
+                momentum_initialization = "cold",       # or rectangular or maxwell-juettner
+                boundary_conditions = [["periodic"]],   # reflective, remove, stop, thermalize (with thermal_boundary_temperature)
+              )
+
+  - trigger: ";smextendspecies"
+    replace: |
+              mean_velocity = [0.], # or mean_velocity_AM = [0.],
+              temperature = [1e-10],
+              time_frozen = 0.0,
+              is_test = False,
+              pusher = "boris",
+
+              # ionization_model = "none",
+              # ionization_electrons = None,
+              # ionization_rate = None,
+
+              # Radiation reaction, for particles only:
+              radiation_model = "none",
+              radiation_photon_species = "photon",
+              radiation_photon_sampling = 1,
+              radiation_photon_gamma_threshold = 2,
+              radiation_max_emissions = 10,
+
+              # Relativistic field initialization:
+              relativistic_field_initialization = "False",
+
+              # For photon species only:
+              multiphoton_Breit_Wheeler = ["electron","positron"],
+              multiphoton_Breit_Wheeler_sampling = [1,1]
+
+              # Merging
+              merging_method = "vranic_spherical",
+              merge_every = 5,
+              merge_min_particles_per_cell = 16,
+              merge_max_packet_size = 4,
+              merge_min_packet_size = 4,
+              merge_momentum_cell_size = [16,16,16],
