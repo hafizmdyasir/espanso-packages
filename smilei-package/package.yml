@@ -23,63 +23,63 @@ matches:
   - trigger: ";smmain"
     replace: |
               Main(
-                geometry = "1Dcartesian",
-                cell_length = [0.01],
-                grid_length  = [16. ],
+                  geometry = "1Dcartesian",
+                  cell_length = [0.01],
+                  grid_length  = [16. ],
 
-                number_of_patches = [64],
-                simulation_time    = 15.,
-                timestep    = 0.005,
-                print_every = 100,
-                
-                EM_boundary_conditions = [['silver-muller']], # or PML with number_of_pml_cells
-                time_fields_frozen = 0.,
+                  number_of_patches = [64],
+                  simulation_time    = 15.,
+                  timestep    = 0.005,
+                  print_every = 100,
+                  
+                  EM_boundary_conditions = [['silver-muller']], # or PML with number_of_pml_cells
+                  time_fields_frozen = 0.,
               )
 
   - trigger: ";smspecies"
     replace: |
               Species(
-                name      = "",
-                mass = 1.,
-                charge = -1.,
-                number_density = 10.,
-                atomic_number = None,
+                  name      = "",
+                  mass = 1.,
+                  charge = -1.,
+                  number_density = 10.,
+                  atomic_number = None,
 
-                position_initialization = 'random',     # centered or regular with regular_number
-                momentum_initialization = "cold",       # or rectangular or maxwell-juettner
-                boundary_conditions = [["periodic"]],   # reflective, remove, stop, thermalize (with thermal_boundary_temperature)
+                  position_initialization = 'random',     # centered or regular with regular_number
+                  momentum_initialization = "cold",       # or rectangular or maxwell-juettner
+                  boundary_conditions = [["periodic"]],   # reflective, remove, stop, thermalize (with thermal_boundary_temperature)
               )
 
   - trigger: ";smextendspecies"
     replace: |
-              mean_velocity = [0.], # or mean_velocity_AM = [0.],
-              temperature = [1e-10],
-              time_frozen = 0.0,
-              is_test = False,
-              pusher = "boris",
+                  mean_velocity = [0.], # or mean_velocity_AM = [0.],
+                  temperature = [1e-10],
+                  time_frozen = 0.0,
+                  is_test = False,
+                  pusher = "boris",
 
-              # ionization_model = "none",
-              # ionization_electrons = None,
-              # ionization_rate = None,
+                  # ionization_model = "none",
+                  # ionization_electrons = None,
+                  # ionization_rate = None,
 
-              # Radiation reaction, for particles only:
-              radiation_model = "none",
-              radiation_photon_species = "photon",
-              radiation_photon_sampling = 1,
-              radiation_photon_gamma_threshold = 2,
-              radiation_max_emissions = 10,
+                  # Radiation reaction, for particles only:
+                  radiation_model = "none",
+                  radiation_photon_species = "photon",
+                  radiation_photon_sampling = 1,
+                  radiation_photon_gamma_threshold = 2,
+                  radiation_max_emissions = 10,
 
-              # Relativistic field initialization:
-              relativistic_field_initialization = "False",
+                  # Relativistic field initialization:
+                  relativistic_field_initialization = "False",
 
-              # For photon species only:
-              multiphoton_Breit_Wheeler = ["electron","positron"],
-              multiphoton_Breit_Wheeler_sampling = [1,1]
+                  # For photon species only:
+                  multiphoton_Breit_Wheeler = ["electron","positron"],
+                  multiphoton_Breit_Wheeler_sampling = [1,1]
 
-              # Merging
-              merging_method = "vranic_spherical",
-              merge_every = 5,
-              merge_min_particles_per_cell = 16,
-              merge_max_packet_size = 4,
-              merge_min_packet_size = 4,
-              merge_momentum_cell_size = [16,16,16],
+                  # Merging
+                  merging_method = "vranic_spherical",
+                  merge_every = 5,
+                  merge_min_particles_per_cell = 16,
+                  merge_max_packet_size = 4,
+                  merge_min_packet_size = 4,
+                  merge_momentum_cell_size = [16,16,16],
