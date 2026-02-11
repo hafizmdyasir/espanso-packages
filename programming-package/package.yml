@@ -79,3 +79,16 @@ matches:
 # numpy
   - trigger: ";numpy"
     replace: "from numpy import *   #type: ignore"
+
+# seaborn
+  - trigger: ";seaborn"
+    replace: |
+              from seaborn import set_theme
+              set_theme(style='darkgrid', context='notebook', palette='dark')
+
+
+  - trigger: ";sbstyle"
+    replace: |
+              from seaborn import set_style, set_palette
+              set_style(style='darkgrid')
+              set_palette(palette='dark')
