@@ -1,0 +1,15 @@
+matches:
+  - trigger: ";berry"
+    replace: "#8F2D56"
+
+  - trigger: ";blue"
+    replace: "#0B3954"
+
+  - trigger: ";jungle"
+    replace: "#417B5A"
+
+  - trigger: ";walnut"
+    replace: "#5B3000"
+
+  - trigger: ";ameth"
+    replace: "#A393BF"
